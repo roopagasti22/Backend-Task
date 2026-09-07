@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Results Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Academic records / live console</p>
+        <h1>Student results<span>.</span></h1>
+        <p class="intro">Enter marks, generate a complete result, and inspect the class at a glance.</p>
+      </div>
+      <div class="api-status"><i id="statusDot"></i><span id="statusText">Checking API</span></div>
+    </header>
+
+    <section class="workspace">
+      <form id="studentForm" class="panel entry-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">01 / Record</p><h2>Add student marks</h2></div>
+          <span class="panel-number">A</span>
+        </div>
+        <label>Student name<input id="studentName" name="name" type="text" placeholder="e.g. Asha Kumar" required></label>
+        <label>Email <span class="muted">(optional)</span><input id="studentEmail" name="email" type="email" placeholder="asha@example.com"></label>
+        <div class="subject-heading"><h3>Subjects</h3><button id="addSubject" type="button" class="text-button">+ Add subject</button></div>
+        <div id="subjects" class="subjects"></div>
+        <button class="primary-button" type="submit">Save and generate result <span>-></span></button>
+        <p id="formMessage" class="message" role="status"></p>
+      </form>
+
+      <section class="panel lookup-panel">
+        <div class="panel-heading">
+          <div><p class="eyebrow">02 / Inspect</p><h2>View results</h2></div>
+          <span class="panel-number">B</span>
+        </div>
+        <div class="lookup-row">
+          <label>Student ID<input id="studentId" type="number" min="1" placeholder="e.g. 1"></label>
+          <button id="loadResult" type="button" class="secondary-button">View result</button>
+        </div>
+        <button id="loadSummary" type="button" class="summary-button">Load class summary <span>-></span></button>
+        <p id="lookupMessage" class="message" role="status"></p>
+        <div id="resultView" class="result-view empty-state">Select a student to see their result.</div>
+      </section>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
